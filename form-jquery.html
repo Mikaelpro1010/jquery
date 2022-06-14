@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <form class="row g-3 container" action="form-jquery.html">
+        <div class="row col-6 g-3 mx-auto">
+            <label>Escolha a cor desejada:</label>
+            <input type="color" value="Input Color" id="imput_cor">
+            <select class="form-select" aria-label="Default select example" id="select_cor">
+                <option selected>Selecione a cor desejada:</option>
+                <option value="1">Azul</option>
+                <option value="2">Vermelho</option>
+                <option value="3">Amarelo</option>
+            </select>
+            <label>Informe uma das espessuras abaixo: </label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="Espessura" id="Espessura">
+                <label class="form-check-label" for="Espessura">
+                    Fino
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="Espessura" id="Espessura_1">
+                <label class="form-check-label" for="Espessura">
+                    Grosso
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="Sim" id="Arredondado">
+                <label class="form-check-label" for="Arredondado">
+                    Deseja que as bordas sejam arredondadas?
+                </label>
+            </div>
+            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Abrir
+            </button>
+        </div>
+        <div class="modal" tabindex="-1" id="exampleModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Modal title</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div>DIV</div>
+                    <script>
+                        $( "#imput_cor").change(function() {
+
+                        });
+                        $( "#select_cor").change(function(select_cor) {
+                            $( "#select_cor").css("background-color:blue");
+                        });
+                    </script>
+                </div>
+              </div>
+            </div>
+        </div>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
