@@ -17,22 +17,22 @@
     <form class="row g-3 container" action="form-jquery.html">
         <div class="row col-6 g-3 mx-auto">
             <label>Escolha a cor desejada:</label>
-            <input type="color" value="Input Color" id="imput_cor">
+            <input type="color" id="imput_cor">
             <select class="form-select" aria-label="Default select example" id="select_cor">
-                <option selected>Selecione a cor desejada:</option>
-                <option value="1">Azul</option>
-                <option value="2">Vermelho</option>
-                <option value="3">Amarelo</option>
+                <option value="0" selected>Selecione a cor desejada:</option>
+                <option value="#0000FF">Azul</option>
+                <option value="#FF0000">Vermelho</option>
+                <option value="#FFFF00">Amarelo</option>
             </select>
             <label>Informe uma das espessuras abaixo: </label>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="Espessura" id="Espessura">
+                <input class="form-check-input" type="radio" value="fino" name="Espessura" id="Espessura">
                 <label class="form-check-label" for="Espessura">
                     Fino
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="Espessura" id="Espessura_1">
+                <input class="form-check-input" type="radio" value="grosso" name="Espessura" id="Espessura_1">
                 <label class="form-check-label" for="Espessura">
                     Grosso
                 </label>
@@ -49,28 +49,56 @@
         </div>
         <div class="modal" tabindex="-1" id="exampleModal">
             <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Modal title</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div>DIV</div>
-                    <script>
-                        $( "#imput_cor").change(function() {
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="DIV" class="mx-auto" style="width: 400px; height: 400px;"></div>
 
-                        });
-                        $( "#select_cor").change(function(select_cor) {
-                            $( "#select_cor").css("background-color:blue");
-                        });
-                    </script>
+                    </div>
                 </div>
-              </div>
             </div>
         </div>
     </form>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous">
+        </script>
+    <script>
+        $("#imput_cor").change(function () {
+            $("#DIV").css("background-color", $("#imput_cor").val());
+        });
+
+        $("#select_cor").change(function () {
+            var cor = $("#select_cor").val();
+            console.log(cor);
+            if (cor != 0) {
+                $("#DIV").css("border-width", "25px");
+                $("#DIV").css("border-style", "solid");
+                $("#DIV").css("border-color", cor);
+            } else {
+                $("#DIV").css("border-width", "");
+                $("#DIV").css("border-style", "");
+                $("#DIV").css("border-color", "");
+            }
+        });
+
+        $("[name=Espessura]").change(function () {
+            if (this.val() == "fino") {
+                $("#DIV").css("border-width", "15px");
+            } if(this.val() == "grosso"){
+                $("#DIV").css("border-width", "30px");
+            }
+        })
+
+        $("#Arredondado").change(function () {
+            if (this.checked) {
+                $("#DIV").css("border-radius", "10px");
+            } else {
+                $("#DIV").css("border-radius", "");
+                }
+            })
     </script>
 </body>
 
